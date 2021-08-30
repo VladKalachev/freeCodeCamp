@@ -6,6 +6,8 @@ class SomeMathObject{
     }
 };
 
-module.exports.sum = sum;
-module.exports.PI = PI;
-module.exports.SomeMathObject = SomeMathObject;
+module.exports = { sum, PI, SomeMathObject }
+
+// module.exports.sum = sum;
+// module.exports.PI = PI;
+// module.exports.SomeMathObject = SomeMathObject;

@@ -1,28 +1,16 @@
-const readline = require('readline');
-const rl = readline.createInterface({ input : process.stdin, output: process.stdout });
-let num1 = Math.floor((Math.random() * 10) + 1);
-let num2 = Math.floor((Math.random() * 10) + 1);
-let answer = num1 + num2;
-
-rl.question(`What is ${ num1 } + ${ num2 }? \n`,
-(userInput) => {
-    if(userInput.trim() == answer) {
-        rl.close();
-    }
+const fs = require('fs');
+// create a file
+fs.writeFile('example.txt','this is an example', (err) => {
+    if(err)
+        console.log(err);
     else {
-        rl.setPrompt('Incorrect response please try again\n');
-        rl.prompt();
-        rl.on('line', (userInput) => {
-            if(userInput.trim() == answer)
-                rl.close();
-            else {
-                rl.setPrompt(`Your answer of ${ userInput } is incorrect try again\n`)
-                rl.prompt();
-            }
-        })
+         console.log('File successfully created');
+         fs.readFile('example.txt', 'utf8', (err, file) => {
+             if(err)
+                console.log(err)
+            else 
+                console.log(file)
+         })
     }
-});
-
-rl.on('close', () => {
-    console.log('Correct!!!!');
+       
 })

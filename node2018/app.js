@@ -1,7 +1,3 @@
-const http = require('http');
-const fs = require('fs');
-http.createServer((req, res) => {
-    const readStream = fs.createReadStream('./static/index.html');
-    res.writeHead(200, {'Content-type': 'text/html'});
-    readStream.pipe(res);
-}).listen(3000);
+const _ = require('lodash');
+let example = _.fill([11, 32,3,2], "banana", 1, 4);
+console.log(example);

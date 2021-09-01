@@ -12,15 +12,32 @@ const fs = require('fs');
 //     }
 // })
 
-fs.unlink('./tutorial/example.txt', (err) => {
-    if(err) {
-        console.log(err);
-    } else 
-        console.log('deleted file');
-})
-fs.rmdir('tutorial', (err) => {
-    if(err) {
-        console.log(err);
-    } else 
-        console.log('deleted folder');
+// fs.unlink('./tutorial/example.txt', (err) => {
+//     if(err) {
+//         console.log(err);
+//     } else 
+//         console.log('deleted file');
+// })
+// fs.rmdir('tutorial', (err) => {
+//     if(err) {
+//         console.log(err);
+//     } else 
+//         console.log('deleted folder');
+// })
+
+fs.readdir('example', (err, files) => {
+    if (err)
+        console.log(err)
+    else {
+       for(let file of files) {
+           fs.unlink('./example/' + file, (err) => {
+               if(err) {
+                   console.log(err);
+               } 
+               else {
+                   console.log('successfully deleted file');
+               }
+           })
+       }
+    }
 })
